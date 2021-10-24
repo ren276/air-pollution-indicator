@@ -2,7 +2,7 @@
 let weather = {
     "apikey":config.API_KEY,
     fetchaqi:function (city,state,country) {
-        fetch("http://api.airvisual.com/v2/city?city="+city+"&state="+state+"&country="+country+"&key="+this.apikey)
+        fetch("https://api.airvisual.com/v2/city?city="+city+"&state="+state+"&country="+country+"&key="+this.apikey)
         .then((res) => res.json())
         .then((res) => this.display(res.data));
     },
@@ -77,7 +77,7 @@ const onPositionGather = (pos)=>{
 }
 
 const getAirquality = async (lat,lon)=>{
-    const rawData = await fetch("http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat="+latval+"&lon="+lonval+"&appid="+apiid)
+    const rawData = await fetch("https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat="+latval+"&lon="+lonval+"&appid="+apiid)
     const airdata=await rawData.json();
 
     setvalue(airdata);
