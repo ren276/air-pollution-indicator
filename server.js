@@ -1,6 +1,6 @@
 
 let weather = {
-    "apikey":config.API_KEY,
+    "apikey":"047bbee4-c705-4cf0-ad35-0df9243b51e9",
     fetchaqi:function (city,state,country) {
         fetch("http://api.airvisual.com/v2/city?city="+city+"&state="+state+"&country="+country+"&key="+this.apikey)
         .then((res) => res.json())
@@ -56,7 +56,7 @@ document.querySelector('.search-btn').addEventListener("click",function (){
 var latval;
 var lonval;
 
-apiid=config.API_ID;
+apiid="071ccf8472dd414295501457983f1d4c";
 
 const getUserLocation =()=>{
     if (navigator.geolocation) 
