@@ -1,8 +1,8 @@
 
 let weather = {
-    "apikey":"047bbee4-c705-4cf0-ad35-0df9243b51e9",
+    "apikey":config.API_KEY,
     fetchaqi:function (city,state,country) {
-        fetch("https://api.airvisual.com/v2/city?city="+city+"&state="+state+"&country="+country+"&key="+this.apikey)
+        fetch("http://api.airvisual.com/v2/city?city="+city+"&state="+state+"&country="+country+"&key="+this.apikey)
         .then((res) => res.json())
         .then((res) => this.display(res.data));
     },
@@ -56,7 +56,7 @@ document.querySelector('.search-btn').addEventListener("click",function (){
 var latval;
 var lonval;
 
-apiid="071ccf8472dd414295501457983f1d4c";
+apiid=config.API_ID;
 
 const getUserLocation =()=>{
     if (navigator.geolocation) 
@@ -77,8 +77,9 @@ const onPositionGather = (pos)=>{
 }
 
 const getAirquality = async (lat,lon)=>{
-    const rawData = await fetch("https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat="+latval+"&lon="+lonval+"&appid="+apiid)
+    const rawData = await fetch("http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat="+latval+"&lon="+lonval+"&appid="+apiid)
     const airdata=await rawData.json();
+
     setvalue(airdata);
 }
 
