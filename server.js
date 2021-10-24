@@ -8,8 +8,6 @@ let weather = {
     },
     display:function(data){
         const {aqius}=data.current.pollution;
-        const {mainus}=data.current.pollution;
-        console.log(mainus);
         console.log(aqius);
         document.querySelector('.aq').innerHTML=aqius;
         if (0<=aqius && aqius<=50) 
@@ -53,7 +51,7 @@ document.querySelector('.search-btn').addEventListener("click",function (){
     weather.search();
 })
 
-// pollotants
+// pollutants
 
 var latval;
 var lonval;
@@ -81,8 +79,6 @@ const onPositionGather = (pos)=>{
 const getAirquality = async (lat,lon)=>{
     const rawData = await fetch("http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat="+latval+"&lon="+lonval+"&appid="+apiid)
     const airdata=await rawData.json();
-
-    console.log(airdata);
     setvalue(airdata);
 }
 
